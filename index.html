@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Train Scheduler</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- CSS link -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Moment.JS CDN -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <!-- JQUERY CDNS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid bg-light">
+        <div class="container">
+            <h1 class="display-4">Train Scheduler</h1>
+            <p class="lead">A spreadsheet that displays information about Train schedules</p>
+        </div>
+    </div>
+
+    <h3 class="m-3"> Current Train Schedule </h3>
+    <br>
+
+    <!-- Here is the table that displays information from Firebase -->
+    <table class="table table-dark" id="trainSchedule">
+        <thead>
+            <tr>
+                <th scope="col">Train Name</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Frequency</th>
+                <th scope="col">Next Arrival</th>
+                <th scope="col">Minutes Away</th>
+            </tr>
+        </thead>
+
+
+        <!-- This part of the table takes the information from Firebase -->
+        <tbody id="train-list">
+
+
+        </tbody>
+    </table>
+
+    <h3 class="m-3"> Add Train </h3>
+    <br>
+
+
+    <!-- Bootstrap will be utilized by the user here to make an input area -->
+    <div class="input">
+
+        <form>
+            <div class="form-group">
+                <label for="formGroupExampleInput"> Train Name </label>
+                <input type="text" class="form-control" id="name" placeholder="Input Here">
+            </div>
+
+            <div class="form-group">
+                <label for="formGroupExampleInput"> Destination </label>
+                <input type="text" class="form-control" id="destination" placeholder="Input Here">
+            </div>
+
+            <div class="form-group">
+                <label for="formGroupExampleInput"> First Train Time </label>
+                <input type="text" class="form-control" id="firstTrain" placeholder="Input Here">
+            </div>
+
+            <div class="form-group">
+                <label for="formGroupExampleInput"> Frequency (Minutes) </label>
+                <input type="text" class="form-control" id="frequency" placeholder="Input Here">
+            </div>
+        </form>
+
+        <!-- Submit button goes here -->
+        <button type="submit" class="btn btn-primary" id="addTrain"> Submit Train </button>
+        <br><br>
+    </div>
+
+    <!-- Link to Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var config = {
+            apiKey: "AIzaSyC0CY4zV-WpP8qAa-AlghtxKj4m5uvpdgM",
+            authDomain: "train-scheduler-2ea87.firebaseapp.com",
+            databaseURL: "https://train-scheduler-2ea87.firebaseio.com",
+            projectId: "train-scheduler-2ea87",
+            storageBucket: "train-scheduler-2ea87.appspot.com",
+            messagingSenderId: "619227302835"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(config);
+    
+    </script>
+
+    <script src="assets/javascript/app.js"></script>
+
+</body>
+
+</html>
